@@ -1,0 +1,22 @@
+label.note {
+    display: block;
+}
+
+label.author {
+    font-size: 12px !important;
+    display: block;
+    padding-top: 12px;
+}
+
+.task-notes div {
+    border: 1px solid #dee2e6;
+    padding: 4px 8px;
+}
+
+.task-description {
+    padding: 4px 8px;
+}
+
+::ng-deep .p-accordion-header-link:hover {
+    text-decoration: none !important;
+}

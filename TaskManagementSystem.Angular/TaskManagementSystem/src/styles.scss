@@ -1,0 +1,139 @@
+/* You can add global styles to this file, and also import other style files */
+/* ----------------------------------------------------------------------------------------------------- */
+/*  @ Import/write your custom styles here.
+/*  @ Styles from this file will override 'vendors.scss' and Fuse's base styles.
+/* ----------------------------------------------------------------------------------------------------- */
+.p-menubar .p-submenu-list {
+    z-index: 2 !important;
+}
+.align-content-center {
+    align-content: center !important;
+}
+
+.p-inputtext {
+    padding: 4px 6px;
+
+    .p-inputnumber {
+        width: 100%;
+
+        .p-inputnumber-input {
+            padding: 0px;
+            border: 0px;
+        }
+        .p-inputtext:enabled:focus {
+            outline: 0 none;
+            outline-offset: 0;
+            box-shadow: none;
+            border-color: none;
+        }
+    }
+}
+
+.table-container {
+    width: 100%;
+    .p-datatable .p-datatable-tbody>tr>td {
+        font-size: 14px;
+    }
+
+    .p-datatable .p-datatable-tbody>tr>td,
+    .p-datatable .p-datatable-thead>tr>th {
+        padding: 6px 9px;
+    }
+
+    .p-datatable .p-datatable-header {
+        padding: 8px 12px;
+    }
+
+    .p-paginator .p-paginator-first,
+    .p-paginator .p-paginator-prev,
+    .p-paginator .p-paginator-next,
+    .p-paginator .p-paginator-last,
+    .p-paginator .p-paginator-pages .p-paginator-page {
+        min-width: 26px;
+        height: 26px;
+    }
+
+    .p-paginator .p-dropdown {
+        height: 32px;
+    }
+}
+
+.p-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -0.5rem;
+    margin-left: -0.5rem;
+    margin-top: -0.5rem;
+}
+
+.field-checkbox,
+.field-radiobutton {
+    margin-bottom: 0px;
+}
+
+.field {
+    margin-bottom: 12px;
+}
+
+.p-dialog .p-dialog-footer {
+    padding: 8px 16px;
+    border-top: 1px solid rgb(226, 232, 240);
+}
+
+.p-dialog .p-dialog-content {
+    padding: 8px 1.5rem 0rem 1.5rem;
+}
+
+.p-dialog .p-dialog-header {
+    padding: 12px 22px;
+    border-bottom: 1px solid rgb(226, 232, 240);
+}
+
+label {
+    font-size: 14px !important;
+}
+
+.btn-sm {
+    height: 26px !important;
+    width: 26px !important;
+
+    .p-button-icon {
+        font-size: 12px !important;
+    }
+}
+
+.p-button.p-button-icon-only {
+    padding: 0px !important;
+}
+
+.p-error,
+.p-invalid {
+    color: #f44336;
+}
+
+.p-button.p-fileupload-choose {
+    padding: 5px 12px !important;
+    width: 100%;
+}
+
+.file-upload-control {
+    .p-fileupload {
+        height: 100%;
+
+        .p-button.p-fileupload-choose {
+            height: inherit;
+            border-bottom-left-radius: 0px;
+            border-top-left-radius: 0px;
+        }
+    }
+}
+
+input[disabled] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+.p-button.p-button-sm {
+    font-size: 13px !important;
+    padding: 4px 14px !important;
+}

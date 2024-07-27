@@ -1,0 +1,141 @@
+<!-- Main -->
+<div class="flex-auto p-2 sm:p-6 ">
+    <div class="flex flex-col bg-card shadow overflow-hidden">
+        <div class="table-container">
+            <p-table #dt [value]="userList" [scrollable]="true" scrollHeight="calc(100vh - 270px)"
+                [resizableColumns]="true" responsiveLayout="scroll" [rows]="25" [rowsPerPageOptions]="[10,25,50,100]"
+                [paginator]="true" styleClass="p-datatable-gridlines" [globalFilterFields]="['name']" [rowHover]="true"
+                dataKey="id">
+                <ng-template pTemplate="caption">
+                    <div class="flex align-items-center justify-content-between">
+                        <h5 class="p-m-0">Manage {{userList ? userList.length : '' }} Users</h5>
+                        <div class="flex align-items-center">
+                            <button pButton pRipple icon="pi pi-plus"
+                                class="p-button-rounded p-button-info btn-sm mr-2 pull-right"
+                                (click)="addUser(userForm)"></button>
+                            <span class="p-input-icon-left pull-right">
+                                <i class="pi pi-search"></i>
+                                <input pInputText type="text" (input)="onGlobalFilter(dt, $event)"
+                                    placeholder="Search..." />
+                            </span>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="max-width:100px;width:100px" pFrozenColumn>Action</th>
+                        <th style="min-width:160px" pSortableColumn="fullName" class="justify-content-between">
+                            <div> Name </div>
+                            <p-sortIcon field="fullName"></p-sortIcon>
+                        </th>
+                        <th style="min-width:160px" pSortableColumn="email" class="justify-content-between">
+                            <div> Email </div>
+                            <p-sortIcon field="email"></p-sortIcon>
+                        </th>
+                        <th style="min-width:160px" pSortableColumn="phoneNumber" class="justify-content-between">
+                            <div> Phone Number </div>
+                            <p-sortIcon field="phoneNumber"></p-sortIcon>
+                        </th>
+                        <th style="min-width:160px" pSortableColumn="roleName" class="justify-content-between">
+                            <div> Role </div>
+                            <p-sortIcon field="roleName"></p-sortIcon>
+                        </th>
+                        <th style="min-width:160px" pSortableColumn="managerName" class="justify-content-between">
+                            <div> Manager Name </div>
+                            <p-sortIcon field="managerName"></p-sortIcon>
+                        </th>
+                        <th style="min-width:100px;max-width:100px;" pSortableColumn="isActive"
+                            class="justify-content-between">
+                            <div> Active </div>
+                            <p-sortIcon field="isActive"></p-sortIcon>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-user>
+                    <tr>
+                        <td style="max-width:100px;width:100px" pFrozenColumn>
+                            <button pButton pRipple icon="pi pi-pencil"
+                                class="p-button-rounded btn-sm p-button-success mr-2" (click)="editUser(user)"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded btn-sm p-button-warning"
+                                (click)="deleteConfirm($event,user)"></button>
+                        </td>
+                        <td style="min-width:160px">{{user.fullName}}</td>
+                        <td style="min-width:160px">{{user.email}}</td>
+                        <td style="min-width:160px">{{user.phoneNumber}}</td>
+                        <td style="min-width:160px">{{user.roleName}}</td>
+                        <td style="min-width:160px">{{user.managerName}}</td>
+                        <td style="min-width:100px;max-width:100px;">
+                            <button pButton pRipple type="button" [icon]="user.isActive ? 'pi pi-check' : 'pi pi-times'"
+                                class="p-button-rounded btn-sm" styleClass="p-button-sm"
+                                [ngClass]="user.isActive ? 'p-button-success' : 'p-button-danger'"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+
+    </div>
+</div>
+
+<p-dialog [(visible)]="showDialog" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [style]="{ width: '50vw' }"
+    [header]="userEdit.id ? 'Edit User' :  'Add User' " [modal]="true" [draggable]="false">
+
+    <form #userForm="ngForm" (ngSubmit)="userForm.form.valid && onSubmit(userForm)" novalidate>
+        <div class="formgrid p-grid">
+            <div class="col-12 md:col-4">
+                <label for="name">Full Name</label>
+                <input id="userName" pInputText autofocus type="text" class="inputfield w-full" name="userName"
+                    #userName="ngModel" [(ngModel)]="userEdit.fullName" required>
+                <small class="p-invalid"
+                    *ngIf="(userName.touched || userForm.submitted) && userName.errors?.required">Name
+                    is required</small>
+            </div>
+            <div class="col-12 md:col-4">
+                <label for="name">Email</label>
+                <input id="email" pInputText autofocus type="text" class="inputfield w-full" name="email"
+                    #email="ngModel" [(ngModel)]="userEdit.email" required>
+                <small class="p-invalid" *ngIf="(email.touched || userForm.submitted) && email.errors?.required">Email
+                    is required</small>
+            </div>
+            <div *ngIf="!userEdit.id" class="col-12 md:col-4">
+                <label for="name">Password</label>
+                <input id="password" pInputText autofocus type="text" class="inputfield w-full" name="password"
+                    #password="ngModel" [(ngModel)]="userEdit.password" required>
+                <small class="p-invalid"
+                    *ngIf="(password.touched || userForm.submitted) && password.errors?.required">Password
+                    is required</small>
+            </div>
+            <div class="col-12 md:col-4">
+                <label for="name">Phone Number</label>
+                <input id="phoneNumber" pInputText autofocus type="text" class="inputfield w-full" name="phoneNumber"
+                    #phoneNumber="ngModel" [(ngModel)]="userEdit.phoneNumber">
+            </div>
+            <div class="col-12 md:col-4">
+                <label for="roleId">Role </label>
+                <p-dropdown inputId="roleId" [options]="roles" name="roleId" #roleId="ngModel"
+                    [(ngModel)]="userEdit.roleId" appendTo="body" placeholder="Select a role" optionLabel="name"
+                    optionValue="id" [showClear]="true" styleClass="inputfield w-full"></p-dropdown>
+                <small class="p-invalid" *ngIf="(roleId.touched || userForm.submitted) && roleId.errors?.required">Role
+                    is required</small>
+            </div>
+            <div class="col-12 md:col-4">
+                <label for="managerId">Manager </label>
+                <p-dropdown inputId="managerId" [options]="users" name="managerId" #managerId="ngModel"
+                    [(ngModel)]="userEdit.managerId" appendTo="body" placeholder="Select a manager" optionLabel="fullName"
+                    optionValue="id" [showClear]="true" styleClass="inputfield w-full"></p-dropdown>
+            </div>
+            <div class="col-12 md:col-4">
+                <label for="isActive">Active</label><br />
+                <p-checkbox name="isActive" #isActive="ngModel" [(ngModel)]="userEdit.isActive" [binary]="true"
+                    inputId="isActive">
+                </p-checkbox>
+            </div>
+        </div>
+        <div class="col-12 border-top-2 border-green-50 flex justify-content-end">
+            <button pButton pRipple type="submit" label="Save" icon="pi pi-check"
+                class="p-button-sm p-button-rounded"></button> &nbsp;
+            <button pButton pRipple type="button" label="Cancel" icon="pi pi-times"
+                class="p-button-sm p-button-rounded p-button-danger" (click)="hideDialog(userForm)"></button>
+        </div>
+    </form>
+</p-dialog>

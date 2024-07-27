@@ -1,0 +1,226 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\GitProject\\TaskManagementSystem\\TaskManagementSystem.API\\TaskManagementSystem.Validators\\TaskManagementSystem.Validators.csproj": {}
+  },
+  "projects": {
+    "D:\\GitProject\\TaskManagementSystem\\TaskManagementSystem.API\\TaskManagementSystem.Data\\TaskManagementSystem.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitProject\\TaskManagementSystem\\TaskManagementSystem.API\\TaskManagementSystem.Data\\TaskManagementSystem.Data.csproj",
+        "projectName": "TaskManagementSystem.Data",
+        "projectPath": "D:\\GitProject\\TaskManagementSystem\\TaskManagementSystem.API\\TaskManagementSystem.Data\\TaskManagementSystem.Data.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "D:\\GitProject\\TaskManagementSystem\\TaskManagementSystem.API\\TaskManagementSystem.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://myget.org/f/aspnetwebstacknightly": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/3UrYMh6zjEVta7GZHIHuCkUn9MLdtiY1B2f3GJj8toSIWT8M6j/api": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "BCrypt.Net": {
+              "target": "Package",
+              "version": "[0.1.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.32, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.32, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.32, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.412\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\GitProject\\TaskManagementSystem\\TaskManagementSystem.API\\TaskManagementSystem.DTO\\TaskManagementSystem.Dto.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitProject\\TaskManagementSystem\\TaskManagementSystem.API\\TaskManagementSystem.DTO\\TaskManagementSystem.Dto.csproj",
+        "projectName": "TaskManagementSystem.Dto",
+        "projectPath": "D:\\GitProject\\TaskManagementSystem\\TaskManagementSystem.API\\TaskManagementSystem.DTO\\TaskManagementSystem.Dto.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "D:\\GitProject\\TaskManagementSystem\\TaskManagementSystem.API\\TaskManagementSystem.DTO\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://myget.org/f/aspnetwebstacknightly": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/3UrYMh6zjEVta7GZHIHuCkUn9MLdtiY1B2f3GJj8toSIWT8M6j/api": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\GitProject\\TaskManagementSystem\\TaskManagementSystem.API\\TaskManagementSystem.Data\\TaskManagementSystem.Data.csproj": {
+                "projectPath": "D:\\GitProject\\TaskManagementSystem\\TaskManagementSystem.API\\TaskManagementSystem.Data\\TaskManagementSystem.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.412\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\GitProject\\TaskManagementSystem\\TaskManagementSystem.API\\TaskManagementSystem.Validators\\TaskManagementSystem.Validators.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitProject\\TaskManagementSystem\\TaskManagementSystem.API\\TaskManagementSystem.Validators\\TaskManagementSystem.Validators.csproj",
+        "projectName": "TaskManagementSystem.Validators",
+        "projectPath": "D:\\GitProject\\TaskManagementSystem\\TaskManagementSystem.API\\TaskManagementSystem.Validators\\TaskManagementSystem.Validators.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "D:\\GitProject\\TaskManagementSystem\\TaskManagementSystem.API\\TaskManagementSystem.Validators\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://myget.org/f/aspnetwebstacknightly": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/3UrYMh6zjEVta7GZHIHuCkUn9MLdtiY1B2f3GJj8toSIWT8M6j/api": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\GitProject\\TaskManagementSystem\\TaskManagementSystem.API\\TaskManagementSystem.DTO\\TaskManagementSystem.Dto.csproj": {
+                "projectPath": "D:\\GitProject\\TaskManagementSystem\\TaskManagementSystem.API\\TaskManagementSystem.DTO\\TaskManagementSystem.Dto.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[10.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.412\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<div id="login">
+    <h3 class="text-center text-white pt-5">Login form</h3>
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" class="form" #signInForm="ngForm"
+                        (ngSubmit)="signInForm.form.valid && login()" novalidate>
+                        <h3 class="text-center text-info">Login</h3>
+                        <div class="form-group">
+                            <label for="email" class="text-info">Email Address:</label><br>
+                            <input type="text" name="email" id="email" #email="ngModel" [(ngModel)]="userLogin.email"
+                                required class="form-control">
+                            <small class="p-invalid"
+                                *ngIf="(email.touched || signInForm.submitted) && email.errors?.required">Email
+                                is required</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-info">Password:</label><br>
+                            <input type="password" name="password" id="password" #password="ngModel"
+                                [(ngModel)]="userLogin.password" required class="form-control">
+                            <small class="p-invalid"
+                                *ngIf="(password.touched || signInForm.submitted) && password.errors?.required">Password
+                                is required</small>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

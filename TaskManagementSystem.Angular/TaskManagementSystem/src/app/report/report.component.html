@@ -1,0 +1,156 @@
+<div class="flex-auto p-2 sm:p-6 ">
+    <form #reportForm="ngForm" (ngSubmit)="reportForm.form.valid && onSubmit(reportForm)" novalidate>
+        <div class="formgrid p-grid">
+            <div class="col-4 md:col-4">
+                <label for="name">Assign From Date</label>
+                <p-calendar [(ngModel)]="request.assignFromDate" appendTo="body" [showIcon]="true" inputId="icon"
+                    id="assignFromDate" styleClass="w-full" class="inputfield" name="assignFromDate"
+                    #assignFromDate="ngModel" [required]="true"></p-calendar>
+                <small class="p-invalid"
+                    *ngIf="(assignFromDate.touched || reportForm.submitted) && assignFromDate.errors?.required">From
+                    Date
+                    is required</small>
+            </div>
+            <div class="col-4 md:col-4">
+                <label for="name">Assign To Date</label>
+                <p-calendar [(ngModel)]="request.assignToDate" appendTo="body" [showIcon]="true" inputId="icon"
+                    id="assignToDate" styleClass="w-full" class="inputfield" name="assignToDate" #assignToDate="ngModel"
+                    [required]="true"></p-calendar>
+                <small class="p-invalid"
+                    *ngIf="(assignToDate.touched || reportForm.submitted) && assignToDate.errors?.required">To Date
+                    is required</small>
+            </div>
+            <div class="col-12 md:col-4">
+                <label for="projectId">Project</label>
+                <p-dropdown inputId="projectId" [options]="projects" name="projectId" #projectId="ngModel"
+                    [(ngModel)]="request.projectId" appendTo="body" placeholder="Select a project" optionLabel="name"
+                    optionValue="id" [showClear]="true" styleClass="inputfield w-full"></p-dropdown>
+            </div>
+            <div class="col-12 md:col-4">
+                <label for="assignTo">Assign To</label>
+                <p-dropdown inputId="assignTo" [options]="users" name="assignTo" #assignTo="ngModel"
+                    [(ngModel)]="request.assignTo" appendTo="body" placeholder="Select a user" optionLabel="fullName"
+                    optionValue="id" [showClear]="true" styleClass="inputfield w-full"></p-dropdown>
+            </div>
+
+            <div class="col-12 md:col-4">
+                <label for="type">Type </label>
+                <p-dropdown inputId="type" [options]="types" name="type" #type="ngModel" [(ngModel)]="request.type"
+                    appendTo="body" placeholder="Select a type" optionLabel="name" optionValue="id" [showClear]="true"
+                    styleClass="inputfield w-full"></p-dropdown>
+            </div>
+            <div class="col-12 md:col-4">
+                <label for="priority">Priority </label>
+                <p-dropdown inputId="priority" [options]="priorities" name="priority" #priority="ngModel"
+                    [(ngModel)]="request.priority" appendTo="body" placeholder="Select a priority" optionLabel="name"
+                    optionValue="id" [showClear]="true" styleClass="inputfield w-full"></p-dropdown>
+            </div>
+            <div class="col-12 md:col-4">
+                <label for="status">Status </label>
+                <p-dropdown inputId="status" [options]="taskStatus" name="status" #status="ngModel"
+                    [(ngModel)]="request.status" appendTo="body" placeholder="Select a status" optionLabel="name"
+                    optionValue="id" [showClear]="true" styleClass="inputfield w-full"></p-dropdown>
+            </div>
+
+            <div class="col-12 md:col-4">
+                <label for="dueTask">Due Task</label><br />
+                <p-checkbox name="dueTask" #dueTask="ngModel" [(ngModel)]="request.dueTask" [binary]="true"
+                    inputId="dueTask">
+                </p-checkbox>
+            </div>
+        </div>
+        <div class="col-12 border-top-2 border-green-50 flex justify-content-center">
+            <button pButton pRipple type="submit" label="Get Report" class="p-button-sm p-button-rounded"></button>
+        </div>
+    </form>
+</div>
+
+<div class="flex-auto p-2 sm:p-6 sm:pt-0">
+    <div class="flex flex-col bg-card shadow overflow-hidden">
+        <div class="table-container">
+            <p-table #dt [value]="taskList" [scrollable]="true" scrollHeight="calc(100vh - 270px)"
+                [resizableColumns]="true" responsiveLayout="scroll" [rows]="25" [rowsPerPageOptions]="[10,25,50,100]"
+                [paginator]="true" styleClass="p-datatable-gridlines"
+                [globalFilterFields]="['subject', 'projectName','assignUserName', 'description']" [rowHover]="true"
+                dataKey="id">
+                <ng-template pTemplate="caption">
+                    <div class="flex align-items-center justify-content-between">
+                        <h5 class="p-m-0">Tasks Report</h5>
+                        <div class="flex align-items-center">
+                            <span class="p-input-icon-left pull-right">
+                                <i class="pi pi-search"></i>
+                                <input pInputText type="text" (input)="onGlobalFilter(dt, $event)"
+                                    placeholder="Search..." />
+                            </span>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <!-- <th style="max-width:100px;width:100px" pFrozenColumn>Action</th> -->
+                        <th style="min-width:160px" pSortableColumn="subject" class="justify-content-between">
+                            <div> Subject </div>
+                            <p-sortIcon field="subject"></p-sortIcon>
+                        </th>
+                        <th style="min-width:160px" pSortableColumn="projectName" class="justify-content-between">
+                            <div> Project </div>
+                            <p-sortIcon field="projectName"></p-sortIcon>
+                        </th>
+                        <th style="min-width:160px" pSortableColumn="assignUserName" class="justify-content-between">
+                            <div> Assign To </div>
+                            <p-sortIcon field="assignUserName"></p-sortIcon>
+                        </th>
+                        <th style="min-width:160px" pSortableColumn="priority" class="justify-content-between">
+                            <div> Priority </div>
+                            <p-sortIcon field="priority"></p-sortIcon>
+                        </th>
+                        <th style="min-width:160px" pSortableColumn="type" class="justify-content-between">
+                            <div> Type </div>
+                            <p-sortIcon field="type"></p-sortIcon>
+                        </th>
+                        <th style="min-width:160px" pSortableColumn="assignDate" class="justify-content-between">
+                            <div> Assign Date </div>
+                            <p-sortIcon field="assignDate"></p-sortIcon>
+                        </th>
+                        <th style="min-width:160px" pSortableColumn="dueDate" class="justify-content-between">
+                            <div> Due Date </div>
+                            <p-sortIcon field="dueDate"></p-sortIcon>
+                        </th>
+                        <th style="min-width:160px" pSortableColumn="description" class="justify-content-between">
+                            <div> Description </div>
+                            <p-sortIcon field="description"></p-sortIcon>
+                        </th>
+                        <th style="min-width:160px" pSortableColumn="status" class="justify-content-between">
+                            <div> Status </div>
+                            <p-sortIcon field="status"></p-sortIcon>
+                        </th>
+                        <!-- <th style="min-width:100px;max-width:100px;" pSortableColumn="isActive"
+                            class="justify-content-between">
+                            <div> Active </div>
+                            <p-sortIcon field="isActive"></p-sortIcon>
+                        </th> -->
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-task>
+                    <tr>
+                        <td style="min-width:160px">{{task.subject}}</td>
+                        <td style="min-width:160px">{{task.projectName}}</td>
+                        <td style="min-width:160px">{{task.assignUserName}}</td>
+                        <td style="min-width:160px">{{priorityName(task.priority)}}</td>
+                        <td style="min-width:160px">{{typeName(task.type)}}</td>
+                        <td style="min-width:160px">{{task.assignDate | date: 'dd/MM/yyyy'}}</td>
+                        <td style="min-width:160px">{{task.dueDate | date: 'dd/MM/yyyy'}}</td>
+                        <td style="min-width:160px">{{task.description}}</td>
+                        <td style="min-width:160px">{{statusName(task.status)}}</td>
+                        <!-- <td style="min-width:100px;max-width:100px;">
+                            <button pButton pRipple type="button" [icon]="task.isActive ? 'pi pi-check' : 'pi pi-times'"
+                                class="p-button-rounded btn-sm" styleClass="p-button-sm"
+                                [ngClass]="task.isActive ? 'p-button-success' : 'p-button-danger'"></button>
+                        </td> -->
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+
+    </div>
+</div>

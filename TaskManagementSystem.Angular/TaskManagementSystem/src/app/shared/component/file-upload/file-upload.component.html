@@ -1,0 +1,6 @@
+<div class="p-inputgroup file-upload-control">
+    <input id="filetName" pInputText autofocus type="text" disabled="disabled" class="inputfield w-full"
+        name="filetName" #filetName="ngModel" [(ngModel)]="fileUrl" required>
+    <p-fileUpload #file mode="basic" name="file[]" 
+        (onSelect)="onFileUpload($event, file)" [auto]="true" styleClass="p-button-warn"></p-fileUpload>
+</div>

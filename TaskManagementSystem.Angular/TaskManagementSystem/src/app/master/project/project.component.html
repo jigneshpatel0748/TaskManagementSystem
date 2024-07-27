@@ -1,0 +1,91 @@
+<!-- Main -->
+<div class="flex-auto p-2 sm:p-6 ">
+    <div class="flex flex-col bg-card shadow overflow-hidden">
+        <div class="table-container">
+            <p-table #dt [value]="projectList" [scrollable]="true" scrollHeight="calc(100vh - 270px)"
+                [resizableColumns]="true" responsiveLayout="scroll" [rows]="25" [rowsPerPageOptions]="[10,25,50,100]"
+                [paginator]="true" styleClass="p-datatable-gridlines" [globalFilterFields]="['name']" [rowHover]="true"
+                dataKey="id">
+                <ng-template pTemplate="caption">
+                    <div class="flex align-items-center justify-content-between">
+                        <h5 class="p-m-0">Manage {{projectList ? projectList.length : '' }} Projects</h5>
+                        <div class="flex align-items-center">
+                            <button pButton pRipple icon="pi pi-plus"
+                                class="p-button-rounded p-button-info btn-sm mr-2 pull-right"
+                                (click)="addProject(projectForm)"></button>
+                            <span class="p-input-icon-left pull-right">
+                                <i class="pi pi-search"></i>
+                                <input pInputText type="text" (input)="onGlobalFilter(dt, $event)"
+                                    placeholder="Search..." />
+                            </span>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="max-width:100px;width:100px" pFrozenColumn>Action</th>
+                        <th style="min-width:160px" pSortableColumn="name" class="justify-content-between">
+                            <div>
+                                Name
+                            </div>
+                            <p-sortIcon field="name"></p-sortIcon>
+                        </th>
+                        <th style="min-width:100px;max-width:100px;" pSortableColumn="isActive"
+                            class="justify-content-between">
+                            <div>
+                                Active
+                            </div>
+                            <p-sortIcon field="isActive"></p-sortIcon>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-project>
+                    <tr>
+                        <td style="max-width:100px;width:100px" pFrozenColumn>
+                            <button pButton pRipple icon="pi pi-pencil"
+                                class="p-button-rounded btn-sm p-button-success mr-2" (click)="editProject(project)"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded btn-sm p-button-warning"
+                                (click)="deleteConfirm($event,project)"></button>
+                        </td>
+                        <td style="min-width:160px">{{project.name}}</td>
+                        <td style="min-width:100px;max-width:100px;">
+                            <button pButton pRipple type="button" [icon]="project.isActive ? 'pi pi-check' : 'pi pi-times'"
+                                class="p-button-rounded btn-sm" styleClass="p-button-sm"
+                                [ngClass]="project.isActive ? 'p-button-success' : 'p-button-danger'"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+
+    </div>
+</div>
+
+<p-dialog [(visible)]="showDialog" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [style]="{ width: '50vw' }"
+    [header]="projectEdit.id ? 'Edit Project' :  'Add Project' " [modal]="true" [draggable]="false">
+
+    <form #projectForm="ngForm" (ngSubmit)="projectForm.form.valid && onSubmit(projectForm)" novalidate>
+        <div class="formgrid p-grid">
+            <div class="col-12 md:col-4">
+                <label for="name">Project Name</label>
+                <input id="projecttName" pInputText autofocus type="text" class="inputfield w-full" name="projecttName"
+                    #projecttName="ngModel" [(ngModel)]="projectEdit.name" required>
+                <small class="p-invalid"
+                    *ngIf="(projecttName.touched || projectForm.submitted) && projecttName.errors?.required">Name
+                    is required</small>
+            </div>
+            <div class="col-12 md:col-4">
+                <label for="isActive">Active</label><br />
+                <p-checkbox name="isActive" #isActive="ngModel" [(ngModel)]="projectEdit.isActive" [binary]="true"
+                    inputId="isActive">
+                </p-checkbox>
+            </div>
+        </div>
+        <div class="col-12 border-top-2 border-green-50 flex justify-content-end">
+            <button pButton pRipple type="submit" label="Save" icon="pi pi-check"
+                class="p-button-sm p-button-rounded"></button> &nbsp;
+            <button pButton pRipple type="button" label="Cancel" icon="pi pi-times"
+                class="p-button-sm p-button-rounded p-button-danger" (click)="hideDialog(projectForm)"></button>
+        </div>
+    </form>
+</p-dialog>

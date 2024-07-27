@@ -1,0 +1,17 @@
+D:\GitProject\TaskManagementSystem\TaskManagementSystem.API\TaskManagementSystem.Validators\bin\Debug\net6.0\TaskManagementSystem.Validators.deps.json
+D:\GitProject\TaskManagementSystem\TaskManagementSystem.API\TaskManagementSystem.Validators\bin\Debug\net6.0\TaskManagementSystem.Validators.dll
+D:\GitProject\TaskManagementSystem\TaskManagementSystem.API\TaskManagementSystem.Validators\bin\Debug\net6.0\TaskManagementSystem.Validators.pdb
+D:\GitProject\TaskManagementSystem\TaskManagementSystem.API\TaskManagementSystem.Validators\bin\Debug\net6.0\TaskManagementSystem.Data.dll
+D:\GitProject\TaskManagementSystem\TaskManagementSystem.API\TaskManagementSystem.Validators\bin\Debug\net6.0\TaskManagementSystem.Dto.dll
+D:\GitProject\TaskManagementSystem\TaskManagementSystem.API\TaskManagementSystem.Validators\bin\Debug\net6.0\TaskManagementSystem.Dto.pdb
+D:\GitProject\TaskManagementSystem\TaskManagementSystem.API\TaskManagementSystem.Validators\bin\Debug\net6.0\TaskManagementSystem.Data.pdb
+D:\GitProject\TaskManagementSystem\TaskManagementSystem.API\TaskManagementSystem.Validators\obj\Debug\net6.0\TaskManagementSystem.Validators.csproj.AssemblyReference.cache
+D:\GitProject\TaskManagementSystem\TaskManagementSystem.API\TaskManagementSystem.Validators\obj\Debug\net6.0\TaskManagementSystem.Validators.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitProject\TaskManagementSystem\TaskManagementSystem.API\TaskManagementSystem.Validators\obj\Debug\net6.0\TaskManagementSystem.Validators.AssemblyInfoInputs.cache
+D:\GitProject\TaskManagementSystem\TaskManagementSystem.API\TaskManagementSystem.Validators\obj\Debug\net6.0\TaskManagementSystem.Validators.AssemblyInfo.cs
+D:\GitProject\TaskManagementSystem\TaskManagementSystem.API\TaskManagementSystem.Validators\obj\Debug\net6.0\TaskManagementSystem.Validators.csproj.CoreCompileInputs.cache
+D:\GitProject\TaskManagementSystem\TaskManagementSystem.API\TaskManagementSystem.Validators\obj\Debug\net6.0\TaskManagementSystem.Validators.csproj.CopyComplete
+D:\GitProject\TaskManagementSystem\TaskManagementSystem.API\TaskManagementSystem.Validators\obj\Debug\net6.0\TaskManagementSystem.Validators.dll
+D:\GitProject\TaskManagementSystem\TaskManagementSystem.API\TaskManagementSystem.Validators\obj\Debug\net6.0\refint\TaskManagementSystem.Validators.dll
+D:\GitProject\TaskManagementSystem\TaskManagementSystem.API\TaskManagementSystem.Validators\obj\Debug\net6.0\TaskManagementSystem.Validators.pdb
+D:\GitProject\TaskManagementSystem\TaskManagementSystem.API\TaskManagementSystem.Validators\obj\Debug\net6.0\ref\TaskManagementSystem.Validators.dll

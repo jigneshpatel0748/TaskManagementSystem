@@ -1,0 +1,13 @@
+<router-outlet></router-outlet>
+<p-confirmPopup></p-confirmPopup>
+<p-toast [preventOpenDuplicates]="true">
+    <ng-template let-message pTemplate="message">
+        <div class="flex" style="flex: 1">
+            <i style="font-size: 2rem" [class]="message.severity == 'warn' ? 'pi pi-exclamation-triangle' : message.severity == 'success' ? 'pi pi-check': message.severity == 'info' ? 'pi pi-info-circle': message.severity == 'error' ? 'pi pi-times-circle' : '' "></i>
+            <div class="text-left pl-2">
+                <h4 class="p-toast-summary">{{message.summary}}</h4>
+                <p class="p-toast-detail" [innerHtml]="message.detail"></p>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>
